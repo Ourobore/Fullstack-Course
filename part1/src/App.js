@@ -1,59 +1,61 @@
-import React from 'react'
+import React from "react";
 
-const Header = (props) => {
-  console.log(props)
-  return (<h1>{props.course}</h1>)
-}
+const Header = ({ course }) => {
+  console.log(course);
+  return <h1>{course}</h1>;
+};
 
-const Part = (props) => {
-  console.log(props)
+const Part = ({ part, exercice }) => {
+  console.log(part);
+  // console.log(exercice);
   return (
     <div>
       <p>
-        {props.part} {props.exercice}
+        {part} {exercice}
       </p>
     </div>
-  )
-}
+  );
+};
 
-const Content = (props) => {
-  console.log(props)
+const Content = ({ parts }) => {
+  console.log(parts);
   return (
     <div>
-      <Part part={props.parts[0].name} exercice={props.parts[0].exercices} />
-      <Part part={props.parts[1].name} exercice={props.parts[1].exercices} />
-      <Part part={props.parts[2].name} exercice={props.parts[2].exercises} />
+      <Part part={parts[0].name} exercice={parts[0].exercices} />
+      <Part part={parts[1].name} exercice={parts[1].exercices} />
+      <Part part={parts[2].name} exercice={parts[2].exercises} />
     </div>
-  )
-}
+  );
+};
 
-const Total = (props) => {
-  console.log(props)
+const Total = ({ parts }) => {
+  console.log(parts);
   return (
     <p>
-      Number of exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}
+      Number of exercises{" "}
+      {parts[0].exercises + parts[1].exercises + parts[2].exercises}
     </p>
-  )
-}
+  );
+};
 
 const App = () => {
   const course = {
-    name: 'Half Stack application development',
+    name: "Half Stack application development",
     parts: [
       {
-        name: 'Fundamentals of React',
-        exercises: 10
+        name: "Fundamentals of React",
+        exercises: 10,
       },
       {
-        name: 'Using props to pass data',
-        exercises: 7
+        name: "Using props to pass data",
+        exercises: 7,
       },
       {
-        name: 'State of a component',
-        exercises: 14
-      }
-    ]
-  }
+        name: "State of a component",
+        exercises: 14,
+      },
+    ],
+  };
 
   return (
     <div>
@@ -61,7 +63,7 @@ const App = () => {
       <Content parts={course.parts} />
       <Total parts={course.parts} />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
